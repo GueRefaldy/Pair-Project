@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<%- include('partials/navbar', {isAuth}) %>
+
+<div class="container mt-4">
+    <% if(!history.length && !appointment){ %>
+        <div class="text-center">
+            <h1>Oops!! There's no data!!</h1>
+            <h1>Please make an appointment</h1>
+            <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg?w=740&t=st=1660758869~exp=1660759469~hmac=407465f8c06d249d8e175874541c13af70e487aa6c375234c22c395eb82af0a7"
+                 class="img-fluid" alt="...">
+        </div>
+    <% } else{ %>
+        <div class="card mb-3">
+            <div class="card-header">
+                <p class="m-0">Vaccine Appointment</p>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Vaccine Category</th>
+                        <th scope="col">Vaccine Name</th>
+                        <th scope="col">Vaccine Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><%= appointment ? appointment.Vaccine.category : 'No appointment' %></td>
+                        <td><%= appointment ? appointment.Vaccine.name : 'No appointment' %></td>
+                        <td><%= appointment ? appointment.date : 'No appointment' %></td>
+                        <td><%= appointment ? 'Undone' : 'No Appointment' %></td>
+                        <td>
+                            <% if(appointment){ %>
+                                <a href="/users/appointment/destroy/<%= appointment.id %>"
+                                   class="btn btn-outline-danger" onclick="return confirm('Are you sure want to cancel this appointment?')">Cancel</a>
+                            <% }else{ %>
+                                No Appointment
+                            <% } %>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <p class="m-0">Vaccine History</p>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Vaccine Category</th>
+                        <th scope="col">Vaccine Name</th>
+                        <th scope="col">Vaccine Date</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% history.forEach((appointment, idx) => { %>
+                        <tr>
+                            <th scope="row"><%= ++idx %></th>
+                            <td><%= appointment.Vaccine.category %></td>
+                            <td><%= appointment.Vaccine.name %></td>
+                            <td><%= appointment.date %></td>
+                            <td><span class="badge bg-success">Done</span></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <% } %>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

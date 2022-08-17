@@ -1,14 +1,17 @@
 [
   {
     "UserId" : 2,
-    "VaccineId" : 1
+    "VaccineId" : 1,
+    "status": 1
   },
   {
     "UserId" : 3,
-    "VaccineId" : 1
+    "VaccineId" : 1,
+    "status": 1
   },
   {
     "UserId" : 4,
-    "VaccineId" : 2
+    "VaccineId" : 2,
+    "status": 1
   }
 ]

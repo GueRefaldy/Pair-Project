@@ -18,8 +18,7 @@
     </style>
 </head>
 <body>
-<%- include('../../users/partials/navbar', {isAuth}) %>
-
+<%- include('partials/navbar', {isAuth}) %>
 
 <div class="container mt-4">
     <% if(err){ %>
@@ -36,24 +35,30 @@
 
     <div class="card m-auto" style="width: 50%">
         <div class="card-header">
-            Form Register
+            Form Appointment
         </div>
         <div class="card-body">
-            <form action="/users/register" method="POST">
+            <form action="/users/appointment" method="POST">
+                <input type="text" class="form-control" id="UserId" name="UserId" value="<%= user.id %>" hidden>
+                <input type="text" class="form-control" id="VaccineId" name="VaccineId" value="<%= vaccine.id %>"
+                       hidden>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="ex: John Doe" name="name">
+                    <input type="text" class="form-control" id="name" value="<%= user.name %>" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="ex: john@example.com" name="email">
+                    <label for="vaccine-name" class="form-label">Vaccine Name</label>
+                    <input type="text" class="form-control" id="vaccine-name" value="<%= vaccine.name %>" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="ex: password123"
-                           name="password">
+                    <label for="vaccine-category" class="form-label">Vaccine Category</label>
+                    <input type="text" class="form-control" id="vaccine-name" value="<%= vaccine.category %>" readonly>
                 </div>
-                <button type="submit" class="btn btn-outline-primary">Register</button>
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
             </form>
         </div>
     </div>

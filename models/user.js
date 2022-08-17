@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.belongsTo(models.Role);
+      User.hasMany(models.Appointment)
     }
   }
 
@@ -57,6 +58,9 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    RoleId: {
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'User',

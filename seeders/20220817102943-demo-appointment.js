@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 module.exports = {
-  up (queryInterface, Sequelize) {
+  up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -11,10 +11,11 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
+     */
     const appointments = JSON.parse(fs.readFileSync('./data/appointments.json', 'utf-8')).map(appointment => {
       return {
         ...appointment,
+        date: new Date(),
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -22,7 +23,7 @@ module.exports = {
     return queryInterface.bulkInsert('Appointments', appointments);
   },
 
-  down (queryInterface, Sequelize) {
+  down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
