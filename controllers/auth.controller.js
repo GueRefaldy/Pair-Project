@@ -40,8 +40,8 @@ class AuthController {
       return;
     }
 
-    const {err} = req.query;
-    res.render('auth/users/login', {isAuth: false, err});
+    const {err, validation} = req.query;
+    res.render('auth/users/login', {isAuth: false, err, validation});
   }
 
   //Login action for user
