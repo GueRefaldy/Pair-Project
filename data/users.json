@@ -1,0 +1,33 @@
+[
+  {
+    "name" : "Admin RS",
+    "email" : "admin@mail.com",
+    "password": "password123",
+    "RoleId" : 1
+  },
+  {
+    "name" : "Alfinna",
+    "email" : "alfinna@mail.com",
+    "password": "password123"
+  },
+  {
+    "name" : "Jono Bule",
+    "email" : "jono@mail.com",
+    "password": "password123"
+  },
+  {
+    "name" : "Udin Kencot",
+    "email" : "udin@mail.com",
+    "password": "password123"
+  },
+  {
+    "name" : "Maman Racing",
+    "email" : "maman@mail.com",
+    "password": "password123"
+  },
+  {
+    "name" : "Makmur Selekedep",
+    "email" : "makmur@mail.com",
+    "password": "password123"
+  }
+]
