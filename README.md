@@ -30,4 +30,4 @@
 
 1. Membuat sistem login dengan Middleware, Session & Bcryptjs. :white_check_mark:
 2. Membuat MVP  (minimal 1 package lain) sebagai fitur tambahan dalam web-app pair projectmu. :white_check_mark:
-3. Mendeploy pair project ke cloud (pakai Heroku)
+3. Mendeploy pair project ke cloud (pakai Heroku) :white_check_mark:
