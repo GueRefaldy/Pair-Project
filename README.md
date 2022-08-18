@@ -14,9 +14,9 @@
 
 ### Level Aplikasi
 1. Terdapat fitur Search atau Sort :white_check_mark:
-2. Terdapat Static method & Instance method
+2. Terdapat Static method & Instance method :white_check_mark:
 3. Menggunakan berbagai macam Validasi dari Sequelize :white_check_mark:
-4. Menggunakan method-method sequelize yang bertujuan untuk CRUD (sisa update) 
+4. Menggunakan method-method sequelize yang bertujuan untuk CRUD :white_check_mark:
 5. Hooks :white_check_mark:
 6. Helper :white_check_mark:
 
