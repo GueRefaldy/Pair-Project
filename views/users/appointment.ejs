@@ -51,11 +51,20 @@
                         <td><%= appointment ? appointment.Vaccine.category : 'No appointment' %></td>
                         <td><%= appointment ? appointment.Vaccine.name : 'No appointment' %></td>
                         <td><%= appointment ? appointment.date : 'No appointment' %></td>
-                        <td><%= appointment ? 'Undone' : 'No Appointment' %></td>
+                        <%if(appointment){%>
+                            <td><span class="badge bg-danger">Undone</span></td>
+
+                        <%}else{%>
+                            <td>No Appointment</td>
+                        <%}%>
                         <td>
                             <% if(appointment){ %>
+                                <a href="/users/qrcode/<%= appointment.id %>"
+                                   class="btn btn-outline-success">QR-Code</a>
                                 <a href="/users/appointment/destroy/<%= appointment.id %>"
-                                   class="btn btn-outline-danger" onclick="return confirm('Are you sure want to cancel this appointment?')">Cancel</a>
+                                   class="btn btn-outline-danger"
+                                   onclick="return confirm('Are you sure want to cancel this appointment?')">Cancel</a>
+
                             <% }else{ %>
                                 No Appointment
                             <% } %>
@@ -79,6 +88,7 @@
                         <th scope="col">Vaccine Name</th>
                         <th scope="col">Vaccine Date</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -89,6 +99,8 @@
                             <td><%= appointment.Vaccine.name %></td>
                             <td><%= appointment.date %></td>
                             <td><span class="badge bg-success">Done</span></td>
+                            <td><a href="/users/qrcode/<%= appointment.id %>"
+                                   class="btn btn-outline-success">QR-Code</a></td>
                         </tr>
                     <% }) %>
                     </tbody>

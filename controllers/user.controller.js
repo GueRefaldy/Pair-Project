@@ -1,5 +1,6 @@
 const {User, Vaccine, Appointment} = require('../models/index');
 const {Op} = require('sequelize')
+const {generateCode} = require('../helpers/generateCode');
 
 class UserController {
   static create(req, res) {
@@ -80,6 +81,35 @@ class UserController {
       .catch(e => {
         res.send(e);
       });
+  }
+
+  static generateCode(req, res) {
+    const {appointmentId} = req.params;
+    const {userId} = req.session;
+
+    Appointment.findOne({
+      where: {
+        id: appointmentId,
+        UserId: userId
+      },
+      include: [User, Vaccine]
+    }).then(appointment => {
+      const qrCodeValue = {
+        'name': appointment.User.name,
+        'appointment date': appointment.date,
+        'appointment created date': appointment.createdAt,
+        'category': appointment.Vaccine.category,
+        'vaccine name': appointment.Vaccine.name
+      };
+      return generateCode(JSON.stringify(qrCodeValue))
+    }).then(url => {
+      console.log(url);
+      res.render('users/qrcode', {isAuth: true, url});
+    })
+      .catch(e => {
+        console.log(e);
+        res.send(e);
+      })
   }
 }
 
