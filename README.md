@@ -18,7 +18,7 @@
 3. Menggunakan berbagai macam Validasi dari Sequelize :white_check_mark:
 4. Menggunakan method-method sequelize yang bertujuan untuk CRUD (sisa update) 
 5. Hooks :white_check_mark:
-6. Helper
+6. Helper :white_check_mark:
 
 ### Pages
 
@@ -29,5 +29,5 @@
 ### Explore
 
 1. Membuat sistem login dengan Middleware, Session & Bcryptjs. :white_check_mark:
-2. Membuat MVP  (minimal 1 package lain) sebagai fitur tambahan dalam web-app pair projectmu.
+2. Membuat MVP  (minimal 1 package lain) sebagai fitur tambahan dalam web-app pair projectmu. :white_check_mark:
 3. Mendeploy pair project ke cloud (pakai Heroku)
