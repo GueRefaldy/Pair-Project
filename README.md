@@ -1,33 +1,33 @@
 # Pair-Project
 
 ### Level Database
--[x] Schema table / ERD
--[x] Entitas Users (email, password, role)
--[x] Memiliki 2 asosiasi yang berbeda 
+1. Schema table / ERD :white_check_mark:
+2. Entitas Users (email, password, role) :white_check_mark:
+3. Memiliki 2 asosiasi yang berbeda :white_check_mark:
     - One to One 1:1 
     - Many to Many M:N 
--[x] Membuat migrasi tambahan
+4. Membuat migrasi tambahan :white_check_mark:
 
 ### Routes
--[x] Minimal terdapat 2 routes get dan 1 route post
--[x] Terdapat roue untuk logout
+1. Minimal terdapat 2 routes get dan 1 route post :white_check_mark:
+2. Terdapat roue untuk logout :white_check_mark:
 
 ### Level Aplikasi
--[x] Terdapat fitur Search atau Sort
--[ ] Terdapat Static method & Instance method
--[x] Menggunakan berbagai macam Validasi dari Sequelize
--[x] Menggunakan method-method sequelize yang bertujuan untuk CRUD (sisa update)
--[x] Hooks (done)
--[ ] Helper
+1. Terdapat fitur Search atau Sort :white_check_mark:
+2. Terdapat Static method & Instance method
+3. Menggunakan berbagai macam Validasi dari Sequelize :white_check_mark:
+4. Menggunakan method-method sequelize yang bertujuan untuk CRUD (sisa update) 
+5. Hooks :white_check_mark:
+6. Helper
 
 ### Pages
 
--[x] Landing Page (menggambarkan project)
--[x] Register & Login Page
--[x] Memiliki 1 halaman view yang menampilkan data gabungan dari 2 tabel atau lebih.
+1. Landing Page (menggambarkan project) :white_check_mark:
+2. Register & Login Page :white_check_mark:
+3. Memiliki 1 halaman view yang menampilkan data gabungan dari 2 tabel atau lebih. :white_check_mark:
 
 ### Explore
 
--[x] Membuat sistem login dengan Middleware, Session & Bcryptjs.
--[ ] Membuat MVP  (minimal 1 package lain) sebagai fitur tambahan dalam web-app pair projectmu.
--[ ] Mendeploy pair project ke cloud (pakai Heroku)
+1. Membuat sistem login dengan Middleware, Session & Bcryptjs. :white_check_mark:
+2. Membuat MVP  (minimal 1 package lain) sebagai fitur tambahan dalam web-app pair projectmu.
+3. Mendeploy pair project ke cloud (pakai Heroku)
