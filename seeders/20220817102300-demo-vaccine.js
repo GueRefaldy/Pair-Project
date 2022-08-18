@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 module.exports = {
-  up (queryInterface, Sequelize) {
+  up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -11,10 +11,11 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
+     */
     const vaccines = JSON.parse(fs.readFileSync('./data/vaccines.json', 'utf-8')).map(vaccine => {
       return {
         ...vaccine,
+        isDeleted: 0,
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -22,7 +23,7 @@ module.exports = {
     return queryInterface.bulkInsert('Vaccines', vaccines);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *

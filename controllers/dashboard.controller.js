@@ -14,7 +14,8 @@ class DashboardController {
       where: {
         'stock': {
           [Op.gt]: 0
-        }
+        },
+        'isDeleted' : 0
       }
     };
     const {category, name} = req.query;
@@ -28,8 +29,6 @@ class DashboardController {
         [Op.iLike]: `%${name}%`
       }
     }
-
-    console.log(condition);
 
     let categories;
     Vaccine.findAll({

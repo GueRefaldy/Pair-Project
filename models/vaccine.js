@@ -13,15 +13,46 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Vaccine.hasMany(models.Appointment);
     }
+
+    static listCategories() {
+      return ['Vaksin 1', 'Vaksin 2', 'Vaksin 3'];
+    }
   }
+
   Vaccine.init({
-    name: DataTypes.STRING,
-    stock: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Vaccine name required'
+        },
+        notNull: {
+          msg: 'Vaccine name required'
+        }
+      }
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Vaccine stock required'
+        },
+        notNull: {
+          msg: 'Vaccine stock required'
+        }
+      }
+    },
     category: DataTypes.STRING,
     isDeleted: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Vaccine',
+  });
+
+  Vaccine.addHook('beforeCreate', (vaccine, options) => {
+    vaccine.isDeleted = 0;
   });
   return Vaccine;
 };

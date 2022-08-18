@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       Appointment.belongsTo(models.User);
       Appointment.belongsTo(models.Vaccine);
     }
+
+    get formatStatus() {
+      return this.status === 1 ? 'Done' : 'Undone';
+    }
+
   }
 
   Appointment.init({
