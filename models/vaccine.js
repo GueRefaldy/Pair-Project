@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   Vaccine.init({
     name: DataTypes.STRING,
     stock: DataTypes.INTEGER,
-    category: DataTypes.STRING
+    category: DataTypes.STRING,
+    isDeleted: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Vaccine',
