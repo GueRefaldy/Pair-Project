@@ -26,5 +26,6 @@ router.get('/appointment', UserController.appointment);
 router.get('/appointment/:vaccineId', UserController.create);
 router.post('/appointment', UserController.store);
 router.get('/appointment/destroy/:appointmentId', UserController.destroy);
+router.get('/qrcode/:appointmentId', UserController.generateCode);
 
 module.exports = router;
