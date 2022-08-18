@@ -49,7 +49,7 @@ class AuthController {
     const {email, password} = req.body;
     let userId;
 
-    User.findOne({where: {email}})
+    User.findOne({where: {email, RoleId: null}})
       .then(user => {
         if (!user) {
           throw 'Invalid credentials, please check your email or password';
@@ -84,13 +84,12 @@ class AuthController {
     const {email, password} = req.body;
     let adminId, role;
 
-    User.findOne({where: {email}, include: Role})
+    User.findOne({where: {email, RoleId: 1}, include: Role})
       .then(admin => {
         if (!admin) {
           throw 'Invalid credentials, please check your email or password';
           return;
         }
-        console.log(admin);
         adminId = admin.id;
         role = admin.Role.name;
         return bcrypt.compare(password, admin.password);
@@ -104,7 +103,6 @@ class AuthController {
 
         req.session.adminId = adminId;
         req.session.role = role;
-        console.log(req.session)
 
         res.redirect('/admins');
       })

@@ -30,7 +30,6 @@ class UserController {
     Appointment.findOne({where: {status: 0}})
       .then(result => {
         if (result) {
-          console.log(result);
           throw 'Cannot make more than 1 appointment! Please finish your appointment first!';
         }
 
@@ -103,11 +102,9 @@ class UserController {
       };
       return generateCode(JSON.stringify(qrCodeValue))
     }).then(url => {
-      console.log(url);
       res.render('users/qrcode', {isAuth: true, url});
     })
       .catch(e => {
-        console.log(e);
         res.send(e);
       })
   }
